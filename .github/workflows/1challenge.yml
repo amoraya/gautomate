@@ -13,11 +13,15 @@ jobs:
           sudo apt-get install curl -y
       - name: Fetch csv file
         run: |
-          curl -s data/sales.csv -o sales.csv
+          curl -s ${{ github.workspace }}/data/sales.csv -o sales.csv
+      - name: Debug sales.csv path
+        run: |
+          pwd
+          ls -l data/
       - name: Count rows in CSV
         run: |
           num_rows=$(wc -l < sales.csv)
-          echo "The CSV file has $num_rows."    
+          echo "The CSV file has $num_rows."
   job2:
     name: Second Job using Windows
     runs-on: windows-latest
