@@ -9,11 +9,13 @@ jobs:
     steps:
       - name: Debug sales.csv path
         run: |
+          cd ${{ github.workspace }}
           pwd
-          ls -l ${{ github.workspace }}/data/
+          ls -l /data/
       - name: Count rows in CSV
         run: |
-          num_rows=$(wc -l < ${{ github.workspace }}/data/sales.csv)
+          cd ${{ github.workspace }}
+          num_rows=$(wc -l < data/sales.csv)
           echo "The CSV file has $num_rows."
   job2:
     name: Second Job using Windows
