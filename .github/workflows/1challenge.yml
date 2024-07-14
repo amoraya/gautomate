@@ -14,10 +14,10 @@ jobs:
       - name: Debug sales.csv path
         run: |
           pwd
-          ls -l ${{ github.workspace }}/data
+          ls -l gautomate/data
       - name: Fetch csv file
         run: |
-          curl -s ${{ github.workspace }}/data/sales.csv -o sales.csv
+          curl -s gautomate/data/sales.csv -o sales.csv
       - name: Count rows in CSV
         run: |
           num_rows=$(wc -l < sales.csv)
