@@ -7,10 +7,17 @@ jobs:
     name: First Job using Ubuntu
     runs-on: ubuntu-latest
     steps:
-      - name: Install whereami
-        run: sudo apt install whereami -y
-      - name: Get geo location
-        run: sudo whereami
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install curl -y
+      - name: Fetch csv file
+        run: |
+          curl -s https://raw.githubusercontent.com/amoraya/gautomate/main/data/sales.csv -o sales.csv
+      - name: Count rows in CSV
+        run: |
+          num_rows=$(wc -l < sales.csv)
+          echo "The CSV file has $num_rows."    
   job2:
     name: Second Job using Windows
     runs-on: windows-latest
