@@ -7,13 +7,6 @@ jobs:
     name: First Job using Ubuntu
     runs-on: ubuntu-latest
     steps:
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install curl -y
-      - name: Fetch csv file
-        run: |
-          curl -s ${{ github.workspace }}/data/sales.csv -o sales.csv
       - name: Debug sales.csv path
         run: |
           pwd
