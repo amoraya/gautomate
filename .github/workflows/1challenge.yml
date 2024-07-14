@@ -10,10 +10,10 @@ jobs:
       - name: Debug sales.csv path
         run: |
           pwd
-          ls -l data/
+          ls -l ${{ github.repository }}/data/
       - name: Count rows in CSV
         run: |
-          num_rows=$(wc -l < sales.csv)
+          num_rows=$(wc -l < ${{ github.repository }}/data/sales.csv)
           echo "The CSV file has $num_rows."
   job2:
     name: Second Job using Windows
