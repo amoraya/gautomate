@@ -10,7 +10,7 @@ jobs:
       - name: Install whereami
         run: sudo apt install whereami -y
       - name: Get geo location
-        run: whereami
+        run: sudo whereami
   job2:
     name: Second Job using Windows
     runs-on: windows-latest
