@@ -14,7 +14,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Get current date
-        run: echo %DATE%
+        run: "Get-Date -Format G"
   job3:
     name: Third Job using MacOS
     runs-on: macos-latest
