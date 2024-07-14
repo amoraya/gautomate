@@ -13,7 +13,7 @@ jobs:
           sudo apt-get install curl -y
       - name: Fetch csv file
         run: |
-          curl -s ${{ github.repository }}/data/sales.csv -o sales.csv
+          curl -s ${{ github.workspace }}/data/sales.csv -o sales.csv
       - name: Debug sales.csv path
         run: |
           pwd
