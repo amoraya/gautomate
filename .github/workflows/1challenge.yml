@@ -1,0 +1,25 @@
+name: first challenge
+
+on: [push]
+
+jobs:
+  job1:
+    name: First Job using Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get current date
+        run: date
+  job2:
+    name: Second Job using Windows
+    runs-on: windows-latest
+    steps:
+      - name: Get current date
+        run: echo %DATE%
+  job3:
+    name: Third Job using MacOS
+    runs-on: macos-latest
+    needs: [job1, job2]
+    steps:
+      - name: Get current date
+        run: date "+%Y-%m-%d"
+
