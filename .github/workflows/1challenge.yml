@@ -7,19 +7,27 @@ jobs:
     name: First Job using Ubuntu
     runs-on: ubuntu-latest
     steps:
-      - name: Get current date
-        run: date
+      - name: Install whereami
+        run: sudo apt install whereami -y
+      - name: Get geo location
+        run: whereami
   job2:
     name: Second Job using Windows
     runs-on: windows-latest
     steps:
       - name: Get current date
-        run: "Get-Date -Format G"
+        run: "Get-Date -Format 'dd.MM.yy HH:mm:ss tt'"
   job3:
     name: Third Job using MacOS
+    runs-on: macos-latest
+    steps:
+      - name: Get current date
+        run: date "+%Y-%m-%d"
+  job4:
+    name: Depending on other jobs
     runs-on: macos-latest
     needs: [job1, job2]
     steps:
       - name: Get current date
-        run: date "+%Y-%m-%d"
+        run: date "+%d.%m.%Y"
 
