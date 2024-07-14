@@ -1,5 +1,2 @@
 # gautomate
 
-Awesome!
-
-Super!
