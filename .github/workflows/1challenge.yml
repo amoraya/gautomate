@@ -13,7 +13,7 @@ jobs:
           sudo apt-get install curl -y
       - name: Fetch csv file
         run: |
-          curl -s https://raw.githubusercontent.com/amoraya/gautomate/main/data/sales.csv -o sales.csv
+          curl -s "https://raw.githubusercontent.com/amoraya/gautomate/main/data/sales.csv" -o sales.csv
       - name: Count rows in CSV
         run: |
           num_rows=$(wc -l < sales.csv)
